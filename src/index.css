@@ -1,15 +1,15 @@
 @import "tailwindcss";
 @font-face {
     font-family: cute;
-    src: url(../public/fonts/DeliusSwashCaps-Regular.ttf);
+    src: url(/fonts/DeliusSwashCaps-Regular.ttf);
 }
 @font-face {
     font-family: popins;
-    src: url(../public/fonts/Poppins-ExtraLight.ttf);
+    src: url(/fonts/Poppins-ExtraLight.ttf);
 }
 @font-face {
     font-family: gilroymd;
-    src: url(./public/fonts/Gilroy-Bold.ttf);
+    src: url(/fonts/Gilroy-Bold.ttf);
 }
 *{
 font-family: gilroymd;
