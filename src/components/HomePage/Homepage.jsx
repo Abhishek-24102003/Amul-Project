@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from './Navbar'
 import Body from './Body'
 
-const Home = () => {
+const Homepage = () => {
   return (
     <div className=' w-full '>
           <Navbar/>
@@ -11,4 +11,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Homepage

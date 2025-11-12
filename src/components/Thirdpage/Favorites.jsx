@@ -1,103 +1,185 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
+
+const chunk = (arr, size) => {
+  const res = [];
+  for (let i = 0; i < arr.length; i += size) {
+    res.push(arr.slice(i, i + size));
+  }
+  return res;
+};
 
 const Favorites = () => {
   const items = [
-    {
-      id: 1,
-      name: "Black Currant",
-      img: "/assets/Icecream.png",
-    },
-    {
-      id: 2,
-      name: "Very Berry Chocolaty",
-      img: "/assets/kool.png",
-    },
-    {
-      id: 3,
-      name: " High Protien",
-      img: "/assets/dahi.png",
-    },
-    {
-      id: 4,
-      name: "100% Pure",
-      img: "/assets/ghee.png",
-    },
-    {
-      id: 5,
-      name: "Rajbhog special",
-      img: "/assets/Rajbhog.png",
-      },
-    {
-      id: 6,
-      name: "Summer special",
-      img: "/assets/lassi.png",
-    },
+    { id: 1, name: "Black Currant", img: "/assets/Icecream.png" },
+    { id: 2, name: "Very Berry Chocolaty", img: "/assets/kool.png" },
+    { id: 3, name: "High Protein", img: "/assets/dahi.png" },
+    { id: 4, name: "100% Pure", img: "/assets/ghee.png" },
+    { id: 5, name: "Rajbhog Special", img: "/assets/Rajbhog.png" },
+    { id: 6, name: "Summer Special", img: "/assets/lassi.png" },
   ];
 
-  const [currentIndex, setCurrentIndex] = useState(0);
   const itemsToShow = 3;
+  const pages = useMemo(() => chunk(items, itemsToShow), [items]);
+  const [page, setPage] = useState(0);
+  const [direction, setDirection] = useState(0);
 
   const handleNext = () => {
-    setCurrentIndex((prev) =>
-      prev + itemsToShow >= items.length ? 0 : prev + itemsToShow
-    );
+    setDirection(1);
+    setPage((p) => (p + 1) % pages.length);
   };
-
   const handlePrev = () => {
-    setCurrentIndex((prev) =>
-      prev - itemsToShow < 0 ? items.length - itemsToShow : prev - itemsToShow
-    );
+    setDirection(-1);
+    setPage((p) => (p - 1 + pages.length) % pages.length);
   };
 
-  const visibleItems = items.slice(
-    currentIndex,
-    currentIndex + itemsToShow
-  ).length
-    ? items.slice(currentIndex, currentIndex + itemsToShow)
-    : items.slice(0, itemsToShow);
+  const slideVariants = {
+    enter: (dir) => ({
+      x: dir > 0 ? 100 : -100,
+      opacity: 0,
+      scale: 0.98,
+      position: "absolute",
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+      scale: 1,
+      position: "relative",
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+    exit: (dir) => ({
+      x: dir > 0 ? -100 : 100,
+      opacity: 0,
+      scale: 0.98,
+      position: "absolute",
+      transition: { duration: 0.45, ease: "easeInOut" },
+    }),
+  };
+
+
+  const letterVariant = {
+    rest: { color: "#3B1C0A" }, 
+    hover: (i) => ({
+      color: ["#ED1E26", "#6A42C1", "#4EC8E9", "#3B1C0A"],
+      transition: {
+      
+        duration: 1.2,
+        delay: i * 0.04,
+        ease: "easeInOut",
+      },
+    }),
+  };
+
+  
+  const imageVariants = {
+    rest: { y: 0 },
+    hover: {
+      y: [-5, -15, -5],
+      transition: {
+        duration: 2,
+        ease: "easeInOut",
+        repeat: Infinity,
+      },
+    },
+  };
 
   return (
-    <div className="relative w-full text-center">
-      {/* Title */}
+    <div className="relative w-full text-center overflow-hidden">
+
       <div className="mb-20">
         <h2 className="text-[#de0404] text-4xl font-bold">All time</h2>
-        <h3 className="text-brown-800 text-5xl font-extrabold">Favorites</h3>
+        <h3 className="text-[#3B1C0A] text-5xl font-extrabold">Favorites</h3>
       </div>
 
-      {/* Arrow Buttons */}
+
       <button
         onClick={handlePrev}
-        className="absolute left-6 top-1/2 transform -translate-y-1/2 text-pink-500 hover:text-pink-700 text-3xl transition"
+        aria-label="Previous"
+        className="absolute left-6 top-1/2 transform -translate-y-1/2 text-[#de0404] hover:scale-110 transition-all z-10"
       >
-        <FaChevronLeft />
+        <FaChevronLeft size={32} />
       </button>
       <button
         onClick={handleNext}
-        className="absolute right-6 top-1/2 transform -translate-y-1/2 text-pink-500 hover:text-pink-700 text-3xl transition"
+        aria-label="Next"
+        className="absolute right-6 top-1/2 transform -translate-y-1/2 text-[#de0404] hover:scale-110 transition-all z-10"
       >
-        <FaChevronRight />
+        <FaChevronRight size={32} />
       </button>
 
-      {/* Items */}
-      <div className="flex justify-center gap-10 px-12">
-        {visibleItems.map((item) => (
-          <div
-            key={item.id}
-            className="flex flex-col items-center w-[250px] transition-transform duration-300 hover:scale-105"
+     
+      <div className="relative w-full flex justify-center overflow-hidden px-6 h-[400px]">
+        <AnimatePresence custom={direction} mode="wait">
+          <motion.div
+            key={page}
+            custom={direction}
+            variants={slideVariants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            className="flex justify-center gap-10 px-12 w-full items-center"
           >
-            <img
-              src={item.img}
-              alt={item.name}
-              className="w-[250px] h-[250px] object-contain mb-4"
-            />
-            <h4 className="text-2xl font-semibold text-[#3B1C0A] mb-3">
-              {item.name}
-            </h4>
-            <button className="bg-[#de0404] text-white hover:bg-white hover:text-[#de0404] hover:border-red-600 border px-5 py-2 rounded-md text-sm font-semibold">
-              ORDER NOW
-            </button>
-          </div>
+            {pages[page].map((item) => {
+              const letters = item.name.split("");
+
+              return (
+               
+                <motion.div
+                  key={item.id}
+                  className="flex flex-col items-center w-[250px] bg-white rounded-xl shadow-md transition-all duration-300 cursor-pointer"
+                  initial="rest"
+                  whileHover="hover"   
+                  animate="rest"       
+                >
+                 
+                  <motion.img
+                    src={item.img}
+                    alt={item.name}
+                    className="w-[250px] h-[250px] object-contain mb-4"
+                    variants={imageVariants}
+                  />
+
+                  
+                  <motion.h4 className="text-2xl font-semibold mb-3 flex justify-center">
+                    {letters.map((char, i) => (
+                      <motion.span
+                        key={i}
+                        custom={i}
+                        variants={letterVariant}
+                        className="inline-block"
+                      >
+                        {char === " " ? "\u00A0" : char}
+                      </motion.span>
+                    ))}
+                  </motion.h4>
+
+                  <motion.button
+                    className="bg-[#de0404] text-white mb-5 border px-5 py-2 rounded-md text-sm font-semibold hover:bg-white hover:text-[#de0404] hover:border-[#de0404] transition-all"
+                    whileTap={{ scale: 0.96 }}
+                  >
+                    ORDER NOW
+                  </motion.button>
+                </motion.div>
+              );
+            })}
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      
+      <div className="mt-6 flex justify-center gap-2">
+        {pages.map((_, idx) => (
+          <button
+            key={idx}
+            onClick={() => {
+              setDirection(idx > page ? 1 : -1);
+              setPage(idx);
+            }}
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              idx === page ? "bg-[#de0404]" : "bg-gray-300"
+            }`}
+          />
         ))}
       </div>
     </div>

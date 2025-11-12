@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const Body = () => {
   return (
-    <div className="h-140 w-full bg-gradient-to-r from-[#de0404] via-[#6A42C1] to-[#4EC8E9] relative top-33 overflow-hidden">
+    <div className="h-180 w-full bg-gradient-to-r from-[#de0404] via-[#6A42C1] to-[#4EC8E9] relative top-25 overflow-hidden">
       {/* Moving Background Gradient */}
       <motion.div
         className="absolute inset-0 bg-gradient-to-r from-[#ffffff0a] via-[#ffffff26] to-transparent blur-3xl opacity-60"
@@ -22,7 +22,7 @@ const Body = () => {
 
       {/* Cream Tilted Background Layer */}
       <motion.div
-        className="absolute h-4/5 w-4/5 bg-[#faeacd] rotate-20 -bottom-55 -left-30 z-0"
+        className="absolute h-4/5 w-4/5 bg-[#faeacd] rotate-10 -bottom-40 -left-70 z-0"
         animate={{
           rotate: [20, 22, 18, 20],
           y: [0, -10, 0],
@@ -78,7 +78,7 @@ const Body = () => {
           <motion.img
             src="/assets/cheese.png"
             alt="Cheese"
-            className="h-[42%] absolute top-40 left-50 drop-shadow-[-20px_20px_25px_rgba(0,0,0,0.35)] transition-all duration-300 ease-out"
+            className="h-[35%] absolute top-40 left-50 drop-shadow-[-20px_20px_25px_rgba(0,0,0,0.35)] transition-all duration-300 ease-out"
             animate={{
               y: [0, -8, 0],
               rotate: [0, 1.5, -1.5, 0],
@@ -99,7 +99,7 @@ const Body = () => {
           <motion.img
             src="/assets/milkbottle.png"
             alt="Milk Bottle"
-            className="h-[70%] absolute right-5 bottom-8 drop-shadow-[-20px_20px_25px_rgba(0,0,0,0.35)] transition-all duration-300 ease-out"
+            className="h-[60%] absolute right-5 bottom-8 drop-shadow-[-20px_20px_25px_rgba(0,0,0,0.35)] transition-all duration-300 ease-out"
             animate={{
               y: [0, -10, 0],
               rotate: [0, 1, -1, 0],
