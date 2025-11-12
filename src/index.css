@@ -1,0 +1,51 @@
+@import "tailwindcss";
+@font-face {
+    font-family: cute;
+    src: url(../public/fonts/DeliusSwashCaps-Regular.ttf);
+}
+@font-face {
+    font-family: popins;
+    src: url(../public/fonts/Poppins-ExtraLight.ttf);
+}
+@font-face {
+    font-family: gilroymd;
+    src: url(./public/fonts/Gilroy-Bold.ttf);
+}
+*{
+font-family: gilroymd;
+}
+.rubix{
+    font-family: cute;
+}
+@keyframes slide-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes slide-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-left {
+  animation: slide-left 8s linear infinite;
+}
+
+.animate-slide-right {
+  animation: slide-right 8s linear infinite;
+}
+
+/* Optional: Pause on hover */
+.animate-slide-left:hover,
+.animate-slide-right:hover {
+  animation-play-state: paused;
+}
+
