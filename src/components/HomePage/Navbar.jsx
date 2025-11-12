@@ -19,7 +19,7 @@ const Navbar = () => {
             className="cursor-pointer hidden md:block"
           />
           <img
-            src="./public/assets/amul_logo.png"
+            src="/assets/amul_logo.png"
             alt="Amul Logo"
             className="h-16 sm:h-24 md:h-28 lg:h-32 object-contain"
           />
@@ -34,7 +34,7 @@ const Navbar = () => {
             Rewards Program
           </h3>
           <img
-            src="./public/assets/girlImage.png"
+            src="/assets/girlImage.png"
             alt="User"
             className="h-20 lg:h-28 object-contain drop-shadow-md"
           />
@@ -72,7 +72,7 @@ const Navbar = () => {
             Rewards Program
           </h3>
           <img
-            src="./public/assets/girlImage.png"
+            src="/assets/girlImage.png"
             alt="User"
             className="h-24 object-contain drop-shadow-md"
           />

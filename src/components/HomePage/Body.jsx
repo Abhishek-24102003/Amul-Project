@@ -62,12 +62,12 @@ const Body = () => {
               "
             >
               <img
-                src="./public/assets/Icecream.png"
+                src="/assets/Icecream.png"
                 alt="Ice Cream"
                 className="h-[45%] absolute top-14 left-5 rotate-20 pointer-events-none"
               />
               <img
-                src="./public/assets/kool.png"
+                src="/assets/kool.png"
                 alt="Kool"
                 className="h-[45%] absolute top-13 left-7 pointer-events-none"
               />
@@ -76,7 +76,7 @@ const Body = () => {
 
           {/* 🧀 Cheese */}
           <motion.img
-            src="./public/assets/cheese.png"
+            src="/assets/cheese.png"
             alt="Cheese"
             className="h-[42%] absolute top-40 left-50 drop-shadow-[-20px_20px_25px_rgba(0,0,0,0.35)] transition-all duration-300 ease-out"
             animate={{
@@ -97,7 +97,7 @@ const Body = () => {
 
           {/* 🥛 Milk Bottle */}
           <motion.img
-            src="./public/assets/milkbottle.png"
+            src="/assets/milkbottle.png"
             alt="Milk Bottle"
             className="h-[70%] absolute right-5 bottom-8 drop-shadow-[-20px_20px_25px_rgba(0,0,0,0.35)] transition-all duration-300 ease-out"
             animate={{
@@ -118,7 +118,7 @@ const Body = () => {
 
           {/* 🐄 Cow */}
           <motion.img
-            src="./public/assets/cow.png"
+            src="/assets/cow.png"
             alt="Cow"
             className="h-[15%] opacity-70 absolute left-0 bottom-13"
             initial={{ opacity: 0, y: 30 }}

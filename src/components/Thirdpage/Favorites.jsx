@@ -6,32 +6,32 @@ const Favorites = () => {
     {
       id: 1,
       name: "Black Currant",
-      img: "./public/assets/Icecream.png",
+      img: "/assets/Icecream.png",
     },
     {
       id: 2,
       name: "Very Berry Chocolaty",
-      img: "./public/assets/kool.png",
+      img: "/assets/kool.png",
     },
     {
       id: 3,
       name: " High Protien",
-      img: "./public/assets/dahi.png",
+      img: "/assets/dahi.png",
     },
     {
       id: 4,
       name: "100% Pure",
-      img: "./public/assets/ghee.png",
+      img: "/assets/ghee.png",
     },
     {
       id: 5,
       name: "Rajbhog special",
-      img: "./public/assets/Rajbhog.png",
+      img: "/assets/Rajbhog.png",
       },
     {
       id: 6,
       name: "Summer special",
-      img: "./public/assets/lassi.png",
+      img: "/assets/lassi.png",
     },
   ];
 

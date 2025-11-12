@@ -3,52 +3,52 @@ import { motion } from "framer-motion";
 export default function Card() {
     let arr = [
         {
-            img: "./public/assets/amulmilk.png",
+            img: "/assets/amulmilk.png",
             name: "Gold Milk",
             desc: "Rich in protien,low fat.",
-            bg:"./public/assets/Background/bg1.webp"
+            bg:"/assets/Background/bg1.webp"
         },
         {
-            img: "./public/assets/Kooldrink.png",
+            img: "/assets/Kooldrink.png",
             name: "Kool Drink",
             desc: "Rich chocolate smooth drink.",
-            bg:"./public/assets/Background/bg2.webp"
+            bg:"/assets/Background/bg2.webp"
         },
         {
-            img: "./public/assets/butter.png",
+            img: "/assets/butter.png",
             name: "Butter",
             desc: "Pasteurized butter",
-            bg:"./public/assets/Background/bg3.webp"
+            bg:"/assets/Background/bg3.webp"
         },
          {
-            img: "./public/assets/lassi.png",
+            img: "/assets/lassi.png",
             name: "Lassi",
             desc: "Smooth sweet lassi",
-            bg:"./public/assets/Background/bg1.webp"
+            bg:"/assets/Background/bg1.webp"
         },
           {
-            img: "./public/assets/slice.png",
+            img: "/assets/slice.png",
             name: "Slice",
             desc: "High good fat cheese slice",
-            bg:"./public/assets/Background/bg3.webp"
+            bg:"/assets/Background/bg3.webp"
         },
           {
-            img: "./public/assets/Rajbhog.png",
+            img: "/assets/Rajbhog.png",
             name: "Rajbhog Icecream",
             desc: "Rich flavour rajbhog icecream",
-            bg:"./public/assets/Background/bg1.webp"
+            bg:"/assets/Background/bg1.webp"
         },
           {
-            img: "./public/assets/ghee.png",
+            img: "/assets/ghee.png",
             name: "Cow ghee",
             desc: "100% pure low fat ghee.",
-            bg:"./public/assets/Background/bg2.webp"
+            bg:"/assets/Background/bg2.webp"
       },
            {
-            img: "./public/assets/dahi.png",
+            img: "/assets/dahi.png",
             name: "Amul masti",
             desc: "Thick rich curd.",
-            bg:"./public/assets/Background/bg3.webp"
+            bg:"/assets/Background/bg3.webp"
         },
     ]
   return (
