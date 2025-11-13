@@ -21,7 +21,7 @@ const stagger = {
 const Footer = () => {
   return (
     <footer
-      className="relative h-[100vh] w-full text-white bg-cover bg-center bg-no-repeat overflow-hidden"
+      className="relative h-[100vh] w-full text-white bg-cover text bg-center bg-no-repeat overflow-hidden"
       style={{ backgroundImage: "url('/assets/Background/footerbg.png')" }}
     >
       <motion.div
@@ -35,31 +35,31 @@ const Footer = () => {
         <div className="flex gap-20 justify-center">
           {/* Column 1 */}
           <motion.div variants={fadeUp}>
-            <h3 className="font-semibold mb-3 text-lg">Amul India</h3>
+            <h3 className="font-semibold mb-3 text-2xl">Amul India</h3>
             <ul className="space-y-2 text-sm md:text-base">
-              <li className="hover:text-[#ffb3b3] cursor-pointer">Home</li>
-              <li className="hover:text-[#ffb3b3] cursor-pointer">About Us</li>
-              <li className="hover:text-[#ffb3b3] cursor-pointer">Our Legacy</li>
-              <li className="hover:text-[#ffb3b3] cursor-pointer">CSR Initiatives</li>
+              <li className="hover:text-[#ffb3b3] cursor-pointer text-xl">Home</li>
+              <li className="hover:text-[#ffb3b3] cursor-pointer text-xl">About Us</li>
+              <li className="hover:text-[#ffb3b3] cursor-pointer text-xl">Our Legacy</li>
+              <li className="hover:text-[#ffb3b3] cursor-pointer text-xl">CSR Initiatives</li>
             </ul>
           </motion.div>
 
           {/* Column 2 */}
           <motion.div variants={fadeUp}>
-            <h3 className="font-semibold mb-3 text-lg">Our Products</h3>
+            <h3 className="font-semibold mb-3 text-2xl">Our Products</h3>
             <ul className="space-y-2 text-sm md:text-base">
-              <li className="hover:text-[#ffb3b3] cursor-pointer">Milk & Ghee</li>
-              <li className="hover:text-[#ffb3b3] cursor-pointer">Butter & Cheese</li>
-              <li className="hover:text-[#ffb3b3] cursor-pointer">Ice Creams</li>
-              <li className="hover:text-[#ffb3b3] cursor-pointer">Chocolates</li>
-              <li className="hover:text-[#ffb3b3] cursor-pointer">Beverages</li>
+              <li className="hover:text-[#ffb3b3] cursor-pointer text-xl">Milk & Ghee</li>
+              <li className="hover:text-[#ffb3b3] cursor-pointer text-xl">Butter & Cheese</li>
+              <li className="hover:text-[#ffb3b3] cursor-pointer text-xl">Ice Creams</li>
+              <li className="hover:text-[#ffb3b3] cursor-pointer text-xl">Chocolates</li>
+              <li className="hover:text-[#ffb3b3] cursor-pointer text-xl">Beverages</li>
             </ul>
           </motion.div>
 
           {/* Column 3 */}
-          <motion.div variants={fadeUp} className="flex flex-col gap-3">
-            <h3 className="font-semibold text-lg">Stay Updated</h3>
-            <p className="text-sm md:text-base">
+          <motion.div variants={fadeUp} className="flex flex-col gap-3 ">
+            <h3 className="font-semibold text-xl">Stay Updated</h3>
+            <p className="text-xl md:text-base">
               Subscribe for Amul’s latest updates and offers.
             </p>
             <div className="flex mt-2">
