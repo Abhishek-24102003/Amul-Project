@@ -26,7 +26,7 @@ const Storypage = ({ setToggle }) => {
         <button
           // MODIFIED:
           // 1. text-2xl -> text-xl md:text-2xl (responsive font size)
-          className="relative z-10 text-xl md:text-2xl text-amber-100 cursor-pointer tracking-wider bg-[#754838] px-5 py-3 rounded-full font-semibold shadow-md hover:scale-105 transition-transform"
+          className="relative rubix z-10 text-xl md:text-2xl text-amber-100 cursor-pointer tracking-wider bg-[#754838] px-5 py-3 rounded-full font-semibold shadow-md hover:scale-105 transition-transform"
           onClick={() => setToggle((prev) => !prev)}
         >
           Skip Story!
