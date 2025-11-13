@@ -27,8 +27,8 @@ const ImageTrail = ({ children }) => {
       const yVal = e.clientY - rect.top;
 
       const imgDiv = document.createElement('div');
-      imgDiv.style.width = '80px';
-      imgDiv.style.height = '100px';
+      imgDiv.style.width = '100px';
+      imgDiv.style.height = '120px';
       imgDiv.style.position = 'absolute';
       imgDiv.style.left = `${xVal - 40}px`;
       imgDiv.style.top = `${yVal - 50}px`;
@@ -37,7 +37,7 @@ const ImageTrail = ({ children }) => {
       const img = document.createElement('img');
       const randomUrl = imageUrls[Math.floor(Math.random() * imageUrls.length)];
       img.setAttribute('src', randomUrl);
-      img.classList.add('w-full', 'h-full', 'object-cover');
+      img.classList.add('w-full', 'h-full', 'object-cover','opacity-60');
       img.style.transform = 'translateY(100%)';
 
       imgDiv.appendChild(img);
@@ -75,7 +75,7 @@ const ImageTrail = ({ children }) => {
   return (
     <div
       ref={containerRef}
-      className="relative w-full pt-70 overflow-hidden flex  justify-center"
+      className="relative  pt-70 w-fit "
     >
       <div
         ref={contentRef}

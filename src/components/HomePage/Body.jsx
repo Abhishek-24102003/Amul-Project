@@ -3,10 +3,21 @@ import { motion } from "framer-motion";
 
 const Body = () => {
   return (
-    <div className="h-180 w-full bg-gradient-to-r from-[#de0404] via-[#6A42C1] to-[#4EC8E9] relative top-25 overflow-hidden">
+    <div
+      className="h-180 w-full bg-[radial-gradient(circle_at_10%_30%,#d9a76c_0%,#b07c4f_35%,#6b4423_70%,#2c1b0f_100%)]
+ relative top-25 overflow-hidden"
+    >
       {/* Moving Background Gradient */}
       <motion.div
-        className="absolute inset-0 bg-gradient-to-r from-[#ffffff0a] via-[#ffffff26] to-transparent blur-3xl opacity-60"
+        className="
+absolute inset-0 
+bg-gradient-to-r 
+from-[#ffffff0a] 
+via-[#ffffff26] 
+to-[#00000040] 
+blur-3xl 
+opacity-70 
+mix-blend-multiply"
         animate={{
           backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
         }}
@@ -22,7 +33,7 @@ const Body = () => {
 
       {/* Cream Tilted Background Layer */}
       <motion.div
-        className="absolute h-4/5 w-4/5 bg-[#faeacd] rotate-10 -bottom-40 -left-70 z-0"
+        className="absolute h-4/5 w-4/5 bg-cover rounded-b-full rounded-r-full bg-[#5D392D] rotate-10 -bottom-40 -left-70 z-0"
         animate={{
           rotate: [20, 22, 18, 20],
           y: [0, -10, 0],
@@ -136,7 +147,7 @@ const Body = () => {
           </motion.p>
 
           <motion.h1
-            className="absolute bottom-5 text-[#8E552F] text-2xl font-bold left-50"
+            className="absolute bottom-5 text-[#c2997e] text-2xl font-bold left-50"
             animate={{
               opacity: [0.9, 1, 0.9],
               y: [0, -2, 0],

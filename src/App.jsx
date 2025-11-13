@@ -7,22 +7,14 @@ const App = () => {
   const [toggle, setToggle] = useState(false);
 
   const pageVariants = {
-    initial: {
-      opacity: 0,
-      y: 50,
-    },
-    animate: {
-      opacity: 1,
-      y: 0,
-    },
-    exit: {
-      opacity: 0,
-      y: -50,
-    },
+    initial: { opacity: 0, y: 50 },
+    animate: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: -50 },
   };
 
+  // Faster transition speed
   const transitionSettings = {
-    duration: 0.5,
+    duration: 0.25, // ↓ reduced from 0.5 to 0.25 for faster animation
     ease: "easeInOut",
   };
 

@@ -3,7 +3,7 @@ import ImageTrail from "./src/components/ImageTrail";
 
 const Storypage = ({ setToggle }) => {
   return (
-    <div className="h-screen w-full bg-amber-100 relative">
+    <div className="h-screen w-full bg-[radial-gradient(circle_at_50%_30%,#fffdf5,#f9ecd1,#f6e4b4)] relative">
       <img
         src="/assets/amulMainicon.png"
         alt=""

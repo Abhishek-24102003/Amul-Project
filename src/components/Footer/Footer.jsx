@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import {
   FaYoutube,
   FaInstagram,
@@ -6,27 +7,45 @@ import {
   FaFacebookF,
 } from "react-icons/fa";
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+};
+
+const stagger = {
+  show: {
+    transition: { staggerChildren: 0.25 },
+  },
+};
+
 const Footer = () => {
   return (
     <footer
-      className="relative h-[100vh] w-full text-white bg-cover bg-center bg-no-repeat overflow-hidden relative"
+      className="relative h-[100vh] w-full text-white bg-cover bg-center bg-no-repeat overflow-hidden"
       style={{ backgroundImage: "url('/assets/Background/footerbg.png')" }}
     >
-      <div className="w-full px-8 md:px-20 pb-10 absolute bottom-0">
+      <motion.div
+        className="w-full px-8 md:px-20 pb-10 absolute bottom-0 text-2xl"
+        variants={stagger}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+      >
+        {/* Top Section */}
         <div className="flex gap-20 justify-center">
-          <div>
+          {/* Column 1 */}
+          <motion.div variants={fadeUp}>
             <h3 className="font-semibold mb-3 text-lg">Amul India</h3>
             <ul className="space-y-2 text-sm md:text-base">
               <li className="hover:text-[#ffb3b3] cursor-pointer">Home</li>
               <li className="hover:text-[#ffb3b3] cursor-pointer">About Us</li>
               <li className="hover:text-[#ffb3b3] cursor-pointer">Our Legacy</li>
-              <li className="hover:text-[#ffb3b3] cursor-pointer">
-                CSR Initiatives
-              </li>
+              <li className="hover:text-[#ffb3b3] cursor-pointer">CSR Initiatives</li>
             </ul>
-          </div>
+          </motion.div>
 
-          <div>
+          {/* Column 2 */}
+          <motion.div variants={fadeUp}>
             <h3 className="font-semibold mb-3 text-lg">Our Products</h3>
             <ul className="space-y-2 text-sm md:text-base">
               <li className="hover:text-[#ffb3b3] cursor-pointer">Milk & Ghee</li>
@@ -35,9 +54,10 @@ const Footer = () => {
               <li className="hover:text-[#ffb3b3] cursor-pointer">Chocolates</li>
               <li className="hover:text-[#ffb3b3] cursor-pointer">Beverages</li>
             </ul>
-          </div>
+          </motion.div>
 
-          <div className="flex flex-col gap-3">
+          {/* Column 3 */}
+          <motion.div variants={fadeUp} className="flex flex-col gap-3">
             <h3 className="font-semibold text-lg">Stay Updated</h3>
             <p className="text-sm md:text-base">
               Subscribe for Amul’s latest updates and offers.
@@ -52,27 +72,30 @@ const Footer = () => {
                 SUBMIT
               </button>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         <div className="border-t border-white/40 mt-10 pt-5"></div>
 
-        <div className="flex flex-col md:flex-row justify-between items-center text-sm text-white/90">
+        {/* Bottom Row */}
+        <motion.div
+          className="flex flex-col md:flex-row justify-between items-center text-sm text-white/90"
+          variants={fadeUp}
+        >
           <p>© {new Date().getFullYear()} | Amul India. All Rights Reserved.</p>
 
+          {/* Social Icons */}
           <div className="flex space-x-4 mt-3 md:mt-0 text-xl">
-            <a href="#" className="hover:text-[#ffb3b3] transition-all">
-              <FaYoutube />
-            </a>
-            <a href="#" className="hover:text-[#ffb3b3] transition-all">
-              <FaInstagram />
-            </a>
-            <a href="#" className="hover:text-[#ffb3b3] transition-all">
-              <FaTwitter />
-            </a>
-            <a href="#" className="hover:text-[#ffb3b3] transition-all">
-              <FaFacebookF />
-            </a>
+            {[FaYoutube, FaInstagram, FaTwitter, FaFacebookF].map((Icon, i) => (
+              <motion.a
+                key={i}
+                whileHover={{ scale: 1.2 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className="hover:text-[#ffb3b3] cursor-pointer"
+              >
+                <Icon />
+              </motion.a>
+            ))}
           </div>
 
           <a
@@ -81,8 +104,8 @@ const Footer = () => {
           >
             Redesigned by: Abhishek Raj Lakhera
           </a>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </footer>
   );
 };

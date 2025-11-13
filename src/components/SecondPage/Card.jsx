@@ -50,7 +50,7 @@ export default function Card() {
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
-          className="relative w-72 rounded-3xl shadow-md transition-transform duration-300 overflow-visible group cursor-pointer"
+          className="relative w-72 h-85 flex flex-col items-center justify-around rounded-3xl shadow-md transition-transform duration-300 overflow-visible group cursor-pointer"
         >
           {/* ✨ Fancy Explore Button Tag */}
           <motion.div
@@ -104,7 +104,7 @@ export default function Card() {
           </motion.div>
 
           {/* Text */}
-          <div className="p-6 text-center relative z-0">
+          <div className=" text-center relative bot flex flex-col items-center justify-end  z-0">
             <h3 className="text-lg font-extrabold text-[#5a3825]">{e.name}</h3>
             <p className="text-sm text-[#5a3825]/80 mt-1">{e.desc}</p>
           </div>
