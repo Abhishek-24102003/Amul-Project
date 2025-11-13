@@ -3,16 +3,16 @@ import ImageTrail from "./src/components/ImageTrail";
 
 const Storypage = ({ setToggle }) => {
   return (
-    <div className="h-screen w-full bg-[radial-gradient(circle_at_50%_30%,#fffdf5,#f9ecd1,#f6e4b4)] relative">
+    <div className="h-screen flex flex-col gap-15 items-center-safe w-full bg-[radial-gradient(circle_at_50%_30%,#fffdf5,#f9ecd1,#f6e4b4)] relative">
       <img
         src="/assets/amulMainicon.png"
         alt=""
-        className="absolute w-110 left-1/2 transform -translate-x-1/2"
+        className=" w-110"
       />
 
       <ImageTrail />
 
-      <div className="absolute bottom-30 left-1/2 transform -translate-x-1/2">
+      <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2">
         <div className="absolute -bottom-2 right-2 w-[90%] h-[80%] bg-[#c7a690] rounded-full z-0"></div>
 
         <button

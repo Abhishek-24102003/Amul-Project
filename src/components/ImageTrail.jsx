@@ -23,15 +23,15 @@ const ImageTrail = ({ children }) => {
       lastRender.current = now;
 
       const rect = container.getBoundingClientRect();
-      const xVal = e.clientX - rect.left;
-      const yVal = e.clientY - rect.top;
+      const xVal = e.clientX ;
+      const yVal = e.clientY ;
 
       const imgDiv = document.createElement('div');
       imgDiv.style.width = '100px';
       imgDiv.style.height = '120px';
       imgDiv.style.position = 'absolute';
-      imgDiv.style.left = `${xVal - 40}px`;
-      imgDiv.style.top = `${yVal - 50}px`;
+      imgDiv.style.left = `${xVal}px`;
+      imgDiv.style.top = `${yVal}px`;
       imgDiv.classList.add('overflow-hidden', 'pointer-events-none', 'z-50');
 
       const img = document.createElement('img');
@@ -75,7 +75,7 @@ const ImageTrail = ({ children }) => {
   return (
     <div
       ref={containerRef}
-      className="relative  pt-70 w-fit "
+      className=" w-fit"
     >
       <div
         ref={contentRef}
@@ -83,8 +83,8 @@ const ImageTrail = ({ children }) => {
       >
         <div className="relative z-10 mix-blend-difference">
           {children || (
-            <h1 className="text-8xl font-bold text-center">
-             The Taste of India <br /> Reimagined for a New Generation
+            <h1 className="text-[5vw] font-bold text-center w-fit">
+             The Taste of India <br /> Reimagined <br />for a New Generation
             </h1>
           )}
         </div>
