@@ -17,27 +17,40 @@ const ImageTrail = ({ children }) => {
     const contentArea = contentRef.current;
     const container = containerRef.current;
 
-    const handleMouseMove = (e) => {
+    // This single handler works for both mouse and touch events
+    const handleMove = (e) => {
+      // Throttle the event
       const now = Date.now();
       if (now - lastRender.current < 100) return;
       lastRender.current = now;
 
+      // Get container's position on the page
       const rect = container.getBoundingClientRect();
-      const xVal = e.clientX ;
-      const yVal = e.clientY ;
+
+      // Check if it's a touch event or mouse event
+      const touch = e.touches ? e.touches[0] : null;
+      const clientX = touch ? touch.clientX : e.clientX;
+      const clientY = touch ? touch.clientY : e.clientY;
+
+      // Calculate position *relative* to the container
+      const xVal = clientX - rect.left;
+      const yVal = clientY - rect.top;
 
       const imgDiv = document.createElement('div');
       imgDiv.style.width = '100px';
       imgDiv.style.height = '120px';
       imgDiv.style.position = 'absolute';
+      // Position relative to the container
       imgDiv.style.left = `${xVal}px`;
       imgDiv.style.top = `${yVal}px`;
+      // Center the image on the cursor (optional but nice)
+      imgDiv.style.transform = 'translate(-50%, -50%)'; 
       imgDiv.classList.add('overflow-hidden', 'pointer-events-none', 'z-50');
 
       const img = document.createElement('img');
       const randomUrl = imageUrls[Math.floor(Math.random() * imageUrls.length)];
       img.setAttribute('src', randomUrl);
-      img.classList.add('w-full', 'h-full', 'object-cover','opacity-60');
+      img.classList.add('w-full', 'h-full', 'object-cover', 'opacity-60');
       img.style.transform = 'translateY(100%)';
 
       imgDiv.appendChild(img);
@@ -62,29 +75,35 @@ const ImageTrail = ({ children }) => {
     };
 
     if (contentArea) {
-      contentArea.addEventListener('mousemove', handleMouseMove);
+      // Add listeners for both mouse and touch
+      contentArea.addEventListener('mousemove', handleMove);
+      contentArea.addEventListener('touchmove', handleMove);
     }
 
     return () => {
       if (contentArea) {
-        contentArea.removeEventListener('mousemove', handleMouseMove);
+        // Remove both listeners on cleanup
+        contentArea.removeEventListener('mousemove', handleMove);
+        contentArea.removeEventListener('touchmove', handleMove);
       }
     };
-  }, []);
+  }, []); // Empty dependency array is correct here
 
   return (
     <div
       ref={containerRef}
-      className=" w-fit"
+      // Added 'relative' to make it the positioning context
+      className="w-fit relative"
     >
       <div
         ref={contentRef}
-        className="relative z-10 text-white  cursor-default mix-blend-difference"
+        className="relative z-10 text-white cursor-default mix-blend-difference"
       >
         <div className="relative z-10 mix-blend-difference">
           {children || (
-            <h1 className="text-[5vw] font-bold text-center w-fit">
-             The Taste of India <br /> Reimagined <br />for a New Generation
+            <h1 className="text-[8vh] font-bold text-center w-fit">
+              The Taste of India <br /> Reimagined <br />
+              for a New Generation
             </h1>
           )}
         </div>
