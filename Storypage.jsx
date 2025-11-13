@@ -8,7 +8,7 @@ const Storypage = ({ setToggle }) => {
     // 2. Added py-12 for vertical padding
     // 3. gap-15 -> gap-12 md:gap-16 (responsive spacing)
     // 4. items-center-safe -> items-center (fixed typo)
-    <div className="min-h-screen flex flex-col gap-12 md:gap-16 items-center w-full bg-[radial-gradient(circle_at_50%_30%,#fffdf5,#f9ecd1,#f6e4b4)] relative py-12">
+    <div className="min-h-screen flex flex-col gap-12 md:gap-16 items-center w-full bg-[radial-gradient(circle_at_50%_30%,#fffdf5,#f9ecd1,#f6e4b4)] relative">
       <img
         src="/assets/amulMainicon.png"
         alt=""
