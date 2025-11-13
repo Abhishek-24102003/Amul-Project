@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const Body = () => {
   return (
     <div
-      className="h-180 w-full bg-[radial-gradient(circle_at_10%_30%,#d9a76c_0%,#b07c4f_35%,#6b4423_70%,#2c1b0f_100%)]
+      className="h-[90vh] w-full bg-[radial-gradient(circle_at_10%_30%,#d9a76c_0%,#b07c4f_35%,#6b4423_70%,#2c1b0f_100%)]
  relative top-25 overflow-hidden"
     >
       {/* Moving Background Gradient */}
@@ -89,7 +89,7 @@ mix-blend-multiply"
           <motion.img
             src="/assets/cheese.png"
             alt="Cheese"
-            className="h-[35%] absolute top-40 left-50 drop-shadow-[-20px_20px_25px_rgba(0,0,0,0.35)] transition-all duration-300 ease-out"
+            className="h-[35%] absolute top-50 left-35 drop-shadow-[-20px_20px_25px_rgba(0,0,0,0.35)] transition-all duration-300 ease-out"
             animate={{
               y: [0, -8, 0],
               rotate: [0, 1.5, -1.5, 0],
